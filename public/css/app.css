@@ -1,0 +1,56 @@
+body {
+    background: #fafafa !important;
+}
+
+.select-header .md-select-label.md-placeholder {
+    color: #fff
+}
+
+#App_name {
+    margin-left: 10px;
+    font-family: Helvetica, san-serif;
+    font-weight: bold;
+    font-size: 35px;
+    color: #fff;
+    opacity: 1;
+}
+#btn-room {
+    font-weight: bold;
+    color: #fff;
+}
+#btn-room:hover {
+    color: #333;
+}
+#username {
+    padding: 0;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20;
+    background-color: #ccdfff;
+    width: 150px;
+}
+md-whiteframe {
+    margin: 1%;
+    color: #ffffff;
+}
+.footer {
+    background: #fff;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+}
+
+.message.ng-enter {
+    -webkit-animation: zoomIn 1s;
+    -ms-animation: zoomIn 1s;
+    animation: zoomIn 1s;
+}
+img {
+    width: 20px;
+    height: 20px;
+}
+.footer md-input-container {
+    width: 100%;
+    padding: 0;
+}

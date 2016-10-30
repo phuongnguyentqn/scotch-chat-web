@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="scotch-chat">
+
+<head>
+    <title>scotch-chat</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="libs/angular-material/angular-material.css">
+    <link rel="stylesheet" href="../public/libs/MaterialDesign/css/materialdesignicons.css">
+    <script src="libs/angular/angular.js"></script>
+    <script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:2015/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="libs/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="libs/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="libs/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="libs/angular-socket-io/socket.js"></script>
+    <script type="text/javascript" src="libs/angular-material-icons/angular-material-icons.js"></script>
+
+    <script src="js/app.js"></script>
+</head>
+
+
+<body ng-controller="MainCtrl" ng-init="usernameModal()">
+    <md-content>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h1>
+                  <span id="App_name">Scotch Chat</span>
+                </h1>
+                <span flex></span>
+                <md-menu-bar role="menubar" class="_md md-keyboard-mode">
+                  <md-menu md-position-mode="left bottom" class="md-menu ng-scope _md">
+
+                  <button ng-click="$mdOpenMenu()" role="menuitem" type="button" aria-haspopup="true" aria-expanded="false">
+                        <img ng-src="img/User.png" class="md-avatar" alt="User" />
+                      </button>
+                      <md-menu-content id="username">
+                        <md-menu-item>
+                          <h3>{{username}}</h3>
+                        </md-menu-item>
+                      </md-menu-content>
+                  </md-menu>
+                  <md-menu md-position-mode="left bottom" class="md-menu ng-scope _md">
+                      <button id="btn-room" ng-click="$mdOpenMenu()" role="menuitem" type="button" aria-haspopup="true" aria-expanded="false">
+                        {{room}}
+                      </button>
+                      <md-menu-content md-overflow>
+                        <md-menu-item ng-repeat="r in rooms" value="{{r}}">
+                          <md-button ng-click="changeRoom(r)">
+                            {{r}}
+                          </md-button>
+                        </md-menu-item>
+                      </md-menu-content>
+                  </md-menu>
+                </md-menu-bar>
+            </div>
+        </md-toolbar>
+        <section>
+            <md-list md-overflow>
+                <!--md-subheader class="md-primary header">Room: {{room}} <span align="right">Userame: {{username}} </span> </md-subheader-->
+
+                <md-whiteframe md-overflow ng-repeat="m in messages" class="md-whiteframe-z2 message" layout layout-align="center center">
+                    <md-list-item class="md-3-line">
+                        <img ng-src="img/User.png" class="md-avatar" alt="User" />
+                        <div class="md-list-item-text">
+                            <h3>{{ m.username }}</h3>
+                            <p>{{m.content}}</p>
+                        </div>
+                    </md-list-item>
+                </md-whiteframe>
+
+            </md-list>
+        </section>
+
+        <div class="footer">
+
+
+            <md-input-container>
+                <label>Message</label>
+                <textarea ng-model="message" columns="1" ng-enter="send(message)"></textarea>
+            </md-input-container>
+
+
+        </div>
+
+    </md-content>
+</body>
+
+</html>
